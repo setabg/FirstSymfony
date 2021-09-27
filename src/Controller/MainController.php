@@ -18,7 +18,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/custom/{name?}", name="custom")
+     * @Route("/create/{name?}", name="custom")
      * @param Request $request
      * @return Response
      */
