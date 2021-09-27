@@ -14,7 +14,7 @@ class MainController extends AbstractController
      */
     public function index()
     {
-        return new Response('<h1>Welcome FirstSymfony</h1>');
+        return $this->render('home/index.html.twig');
     }
 
     /**
