@@ -52,10 +52,22 @@ class PostController extends AbstractController
      */
     public function show(Post $post){
 
-        dump($post); die;
         //create the show view
         return $this->render('post/show.html.twig', [
             'post'=>$post
         ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete")
+     * @param Post $post
+     */
+    public function remove(Post $post){
+
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('post.index'));
     }
 }
