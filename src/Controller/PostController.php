@@ -47,10 +47,11 @@ class PostController extends AbstractController
 
     /**
      * @Route("/show/{id}", name="show")
+     * @param Post $post
      * @return Response
      */
-    public function show($id, PostRepository $postRepository){
-        $post=$postRepository->find($id);
+    public function show(Post $post){
+
         dump($post); die;
         //create the show view
         return $this->render('post/show.html.twig', [
