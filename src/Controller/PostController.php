@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,10 +17,11 @@ class PostController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(): Response
-    {
+    public function index(PostRepository $postRepository){
+        $posts=$postRepository->findAll();
+
         return $this->render('post/index.html.twig', [
-            'controller_name' => 'PostController',
+            'posts'=>$posts
         ]);
     }
 
