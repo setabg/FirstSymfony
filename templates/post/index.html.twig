@@ -1,8 +1,13 @@
 {% extends('base.html.twig')  %}
 
 {% block body%}
-   <h2>List of all posts</h2>
-
+    {% for message in app.flashes('success') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <h2>List of all posts</h2>
+    
     <table class="table table-striped">
         <thead>
             <tr>
