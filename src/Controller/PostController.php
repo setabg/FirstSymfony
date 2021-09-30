@@ -42,9 +42,11 @@ class PostController extends AbstractController
 
             //entity manager
             $em=$this->getDoctrine()->getManager();
-            dump($post);
-//        $em->persist($post);
-//        $em->flush();
+
+            $em->persist($post);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('post.index'));
         }
 
 
